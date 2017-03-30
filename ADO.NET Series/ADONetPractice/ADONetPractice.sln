@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADONetPractice", "ADONetPractice\ADONetPractice.csproj", "{57EDD14B-D60D-4EEB-B7B4-6A614D078FE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionPrac", "TransactionPrac\TransactionPrac.csproj", "{4B8DC421-D0AD-4C21-ADEF-EC6B0359A3A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57EDD14B-D60D-4EEB-B7B4-6A614D078FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57EDD14B-D60D-4EEB-B7B4-6A614D078FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57EDD14B-D60D-4EEB-B7B4-6A614D078FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57EDD14B-D60D-4EEB-B7B4-6A614D078FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B8DC421-D0AD-4C21-ADEF-EC6B0359A3A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8DC421-D0AD-4C21-ADEF-EC6B0359A3A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8DC421-D0AD-4C21-ADEF-EC6B0359A3A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8DC421-D0AD-4C21-ADEF-EC6B0359A3A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
