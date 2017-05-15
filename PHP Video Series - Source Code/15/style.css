@@ -1,0 +1,34 @@
+body{
+background-color:#edf0f5;
+padding:0px;
+margin:0px;
+}
+.header{
+height:100px;
+background-color:#668cff;
+color:white;
+font-size:42px;
+position:relative;
+}
+.loginpanel{
+	margin-left:100px;
+	margin-top:20px;
+	float:left;
+	background-color:#e6e6e6;
+	width:350px;
+	padding:20px;
+	
+}
+
+.registration{
+	margin-left:50px;
+	margin-right:50px;
+	margin-top:20px;
+	background-color:#e6e6e6;
+	width:350px;
+	padding:10px;
+	float:right;
+}
+.label{
+	width:100px;
+}
