@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_MyProductLayout</title>
+    <style>
+        .menu a {
+            padding: 5px;
+            background-color: lightgrey;
+            color: red;
+        }
+
+        .prodbox {
+            padding: 5px;
+            margin: 5px;
+            width: 400px;
+            background-color: lightgray;
+        }
+
+        .comments .comment .picture {
+            float: left;
+        }
+
+            .comments .comment .picture img {
+                width: 30px;
+                height: 30px;
+            }
+
+        .comments .comment .name {
+            color: red;
+        }
+
+        .comments .comment .comment-text {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+    </style>
+    <script>
+        window.BasePath = '@Url.Content("~")';
+    </script>
+
+    @Styles.Render("~/Content/css")
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+
+    <script src="~/Scripts/MyAppGlobal.js"></script>
+
+    @RenderSection("scripts", false)
+
+</head>
+<body>
+    <div id="overlay" class="overlay">
+
+    </div>
+
+    <div class="menu">
+        @if (WebPrac.Security.SessionManager.User.IsAdmin)
+        {
+            <a href="/Home/Admin">Home</a>
+            <a href="/Product/ShowAll">Show All</a>
+            <a href="/Product/New">New Product</a>
+        }
+        else
+        {
+            <a href="/Home/NormalUser">Home</a>
+            <a href="/Product/ShowAll">Show All</a>
+        }
+
+        <a href="/User/Logout">Logout</a>
+        <a href="/Product2/New">Products-AJAX</a>
+    </div>
+
+    <h1> Welcome @WebPrac.Security.SessionManager.User.Name</h1>
+    <span style="color:red">@TempData["Message"]</span>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

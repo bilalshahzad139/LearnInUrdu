@@ -1,0 +1,53 @@
+﻿@model List<PMS.Entities.ProductDTO>
+
+@{
+    ViewBag.Title = "ShowAll";
+    Layout = "~/Views/Shared/_MyProductLayout.cshtml";
+}
+
+@section scripts{
+
+    <script>
+        $(function () {
+            $(".editbutton").click(function () {
+                var pid = $(this).attr("pid");
+                $("#ProductID").val(pid);
+            });
+        });
+    </script>
+
+}
+
+
+<h2>ShowAll</h2>
+
+<a href="/Product/New">New </a> <br />
+
+<span>@TempData["Msg"]</span>
+
+<form action="/Product/Edit2" method="post">
+    <input type="hidden" name="ProductID" id="ProductID" />
+    <table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductID</td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.CreatedOn</td>
+                <td>@item.CreatedBy</td>
+                <td><img src="/UploadedFiles/@item.PictureName" style="width:100px;height:100px;" /></td>
+
+                @if (WebPrac.Security.SessionManager.User.IsAdmin)
+                {
+
+                    <td><a href="/Product/Edit/@item.ProductID">Edit</a></td>
+                    <td><a href="/Product/Delete/@item.ProductID">Delete</a></td>
+
+                    <td><input type="submit" value="Edit" class="editbutton" pid="@item.ProductID" /> </td>
+                }
+            </tr>
+        }
+    </table>
+</form>
+

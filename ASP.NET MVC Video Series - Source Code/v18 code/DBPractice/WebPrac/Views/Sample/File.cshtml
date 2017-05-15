@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "File";
+    Layout = "~/Views/Shared/_SampleLayout.cshtml";
+}
+
+@section scripts {
+    <script>
+        $(function () {
+            $("#btnUpload").click(function () {
+
+                var data = new FormData();
+
+                var files = $("#myfile").get(0).files;
+                if (files.length > 0) {
+                    console.log(files[0]);
+                    data.append("myfile", files[0]);
+                }
+
+                data.append("Name", $("#txtName").val());
+                data.append("Price", $("#txtPrice").val());
+
+                var settings = {
+                    type: "POST",
+                    url: "/Sample/SaveFile2",
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (r) {
+                        console.log(r);
+                        alert(r);
+                    },
+                    error: function () {
+                        alert('error has occurred');
+                    }
+
+                };
+
+                $.ajax(settings);
+
+                return false;
+            });
+
+        });
+    </script>
+    
+    }
+
+<h2>File Upload Testing without AJAX</h2>
+
+
+<form action="/Sample/SaveFile" method="post" enctype="multipart/form-data">
+
+    Name<input type="text" name="Name" /> <br />
+    Price: <input type="text" name="Price" /> <br />
+    Image: <input type="file" name="Image" />
+    <input type="submit" value="Save" />
+</form>
+
+
+
+<h2>File Upload Testing using AJAX</h2>
+
+<div>
+    Name<input type="text" id="txtName"  /> <br />
+    Price: <input type="text" id="txtPrice" /> <br />
+    Image: <input type="file" id="myfile" />
+    <input type="submit" value="Save" id="btnUpload" />
+</div>

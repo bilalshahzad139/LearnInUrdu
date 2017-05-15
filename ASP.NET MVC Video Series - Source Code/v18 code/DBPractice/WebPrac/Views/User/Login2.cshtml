@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Login2";
+    Layout = "~/Views/Shared/_MyPublicLayout.cshtml";
+}
+
+@section scripts {
+
+    <script>
+        $(function () {
+            $("#btnLogin").click(function () {
+
+                var login = $("#txtLogin").val();
+                var pass = $("#txtPassword").val();
+
+                var d = { "login": login, "password": pass };
+
+                var settings = {
+                    type : "POST",
+                    dataType: "json",
+                    url: "/User/ValidateUser",
+                    data: d,
+                    success: function (resp) {
+                        if (resp.valid == true) {
+                            location.href = resp.urlToRedirect;
+                        }
+                        else {
+                            alert("Invalid Login/Password");
+                        }
+                    },
+                    error: function (e) {
+                        alert("error");
+                    }
+                };
+
+                $.ajax(settings);
+
+                return false;
+            });
+        });
+    </script>
+
+}
+
+
+<h2>Login2</h2>
+
+<div>
+    Login: <input type="text" id="txtLogin" /> <br />
+    Password:<input type="password" id="txtPassword" /> <br />
+    <input type="submit" value="Login" id="btnLogin" />
+</div>

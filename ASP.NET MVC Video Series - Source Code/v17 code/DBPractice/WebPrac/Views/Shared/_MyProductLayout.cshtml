@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_MyProductLayout</title>
+
+    <script>
+        window.BasePath = '@Url.Content("~")';
+    </script>
+
+    @Styles.Render("~/Content/css")
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/MyAppGlobal.js"></script>
+
+    @RenderSection("scripts", false)
+
+</head>
+<body>
+    <div id="overlay" class="overlay">
+
+    </div>
+
+    <div class="menu">
+        @if (WebPrac.Security.SessionManager.User.IsAdmin)
+        {
+            <a href="/Home/Admin">Home</a>
+            <a href="/Product/ShowAll">Show All</a>
+            <a href="/Product/New">New Product</a>
+        }
+        else
+        {
+            <a href="/Home/NormalUser">Home</a>
+            <a href="/Product/ShowAll">Show All</a>
+        }
+
+        <a href="/User/Logout">Logout</a>
+    </div>
+
+    <h1> Welcome @WebPrac.Security.SessionManager.User.Name</h1>
+    <span style="color:red">@TempData["Message"]</span>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

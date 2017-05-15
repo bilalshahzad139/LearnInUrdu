@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_MyProductLayout.cshtml";
+}
+
+@section scripts {
+
+    <script src="~/Scripts/handlebars.js"></script>
+    <script src="~/Scripts/myapp.js"></script>
+
+    <script>
+
+        $(function () {
+            MyApp.Main();
+        });
+
+
+    </script>
+}
+
+<h2>Product Management</h2>
+
+<div>
+
+
+    <img src="" style="width:100px;height:100px;display:none" id="prodimg" /> <br />
+
+    <input type="hidden" name="ProductID" id="txtProductID" value="0" />
+    <input type="hidden" name="PictureName" id="txtPictureName" />
+    Name<input type="text" name="Name" id="txtName" /> <br />
+    Price: <input type="text" name="Price" id="txtPrice" /> <br />
+    Image: <input type="file" name="Image" id="myfile" /> <br />
+
+    <input type="submit" value="Save" id="btnSave" />
+    <input type="button" id="btnClear" value="Clear" />
+</div>
+
+<h2>Products</h2>
+@*<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody id="tblBody"></tbody>
+</table>*@
+
+
+<div id="tblBody">
+
+</div>
+
+<div id="emailpopup" class="modalpopup" >
+    <span id="popupname"></span>
+
+    <button id="btnSend">Email</button>
+    <button id="btnClose">Close</button>
+</div>
+
+
+@*<script id="listtemplate" type="text/x-handlebars-template">
+    {{#each data}}
+    <tr pid="{{ProductID}}">
+        <td>{{Name}}</td>
+        <td>{{Price}}</td>
+        <td><img src="/UploadedFiles/{{PictureName}}" style="width:100px;height:100px;" /></td>
+        @if (WebPrac.Security.SessionManager.User.IsAdmin)
+        {
+            <td><a href="#" class="editprod">Edit</a></td>
+            <td><a href="#" class="deleteprod">Delete</a></td>
+            <td><a href="#" class="emailprod">Email</a></td>
+        }
+    </tr>
+    {{/each}}
+</script>*@
+
+<script id="listtemplate" type="text/x-handlebars-template">
+    {{#each data}}
+    <div class="prodbox" pid="{{ProductID}}">
+        <div style="float:left">
+            <img src="/UploadedFiles/{{PictureName}}" style="width:100px;height:100px;" />
+        </div>
+        <div style="float:left">
+            Product Id: {{ProductID}} <br />
+            Name: {{Name}} <br />
+            Price: {{Price}} <br />
+            Created On {{CreatedOn}} <b>By</b> {{CreatedBy}}
+        </div>
+        <div style="clear:both">
+            @if (WebPrac.Security.SessionManager.User.IsAdmin)
+            {
+                <a href="/Product/Edit/{{ProductID}}">Edit</a>
+                <a href="/Product/Delete/{{ProductID}}">Delete</a>
+                <input type="submit" value="Edit" class="editbutton" pid="{{ProductID}}" />
+            }
+        </div>
+        <div class="commentarea">
+            <textarea class="txtComment" rows="1" cols="50"></textarea>
+            <button id="txtComment" value="Add" class="addcomment">Add</button>
+        </div>
+        <br />
+        <div class="comments">
+
+            {{#each Comments}}
+
+            <div class="comment">
+                <div class="picture">
+                    <img src='/UploadedFiles/{{PictureName}}' />
+                </div>
+                <div>
+                    <span class="name">{{UserName}}</span>
+                    <span class="comment-text"> {{CommentText}}</span> <br />
+                    <span class="comment-text commenton">{{CommentOn}}</span>
+
+                </div>
+            </div>
+            <br />
+            <div style="clear:both"></div>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<script id="commenttemplate" type="text/x-handlebars-template">
+    <div class="comment">
+        <div class="picture">
+            <img src='/UploadedFiles/{{PictureName}}' />
+        </div>
+        <div>
+            <span class="name">{{UserName}}</span>
+            <span class="comment-text"> {{CommentText}}</span> <br />
+            <span class="comment-text commenton">{{CommentOn}}</span>
+
+        </div>
+    </div>
+    <br />
+    <div style="clear:both"></div>
+</script>
