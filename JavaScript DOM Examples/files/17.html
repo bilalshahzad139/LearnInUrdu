@@ -1,0 +1,50 @@
+<!--
+    Learning Objective:
+    Excecuting a code after some time
+-->
+
+
+<html>
+<head>
+    <title>17</title>
+    <script>
+
+        var counter = 0;
+        var colors = ['red', 'green', 'yellow', 'pink'];
+
+        function Main() {
+            //Call test function after 3 seconds. It is called once.
+            setTimeout(test, 3000);
+
+            //call test1 function after every 1 second.
+            setInterval(test1, 1000);
+        }
+
+        function test() {
+            alert("Hello");
+        }
+
+        function test1() {
+            counter++;
+
+            var d = document.getElementById('sp');
+
+            //choose colors in a cycle, to keep colors index (0-3),
+            //we had used remainder operator here.
+
+            var c = colors[counter % 4];
+
+            //d.setAttribute("style","background-color:red");
+            d.setAttribute("style", "background-color:" + c);
+            d.innerText = "Counter:" + counter;
+        };
+
+    </script>
+</head>
+<body onload="return Main();">
+
+    <h1> Use of setTimeout/setInterval functions: Alert will be displayed in 3 seconds </h1>
+
+    <span id='sp'> </span>
+</body>
+</html>

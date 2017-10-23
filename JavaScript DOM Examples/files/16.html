@@ -1,0 +1,44 @@
+<!--
+    Learning Objective:
+    What happens when we don't return false from 'inline code'
+-->
+
+<html>
+<head>
+    <title>16</title>
+
+    <script type="text/javascript">
+
+        //Function which will be executed on page Load (set on body load), we can consider it as our Main entry point
+        function MainFunction() {
+        }//End of MainFunction
+
+        function showAlert()
+        {
+            alert('hello 2');
+        }
+
+        /*
+        This function is being called by 'hyperlink' it is returning 'false to stop navigation
+        but it will not work if we'll not return this output from hyperlink
+        */
+        function validate()
+        {
+            alert('in validate');
+            return false;
+        }
+    </script>
+</head>
+<body onload="return MainFunction()">
+
+    <div>
+        <input id="btn1" value="Show Alert 1 " type="submit" onclick="alert('hello 1');" />
+        <input id="Submit1" value="Show Alert 2" type="submit" onclick="showAlert();" />
+        <br />
+        <a href="test.com" onclick="validate();">Test 1</a>
+        <br />
+        <a href="test.com" onclick="return validate();">Test 2</a>
+    </div>
+    
+</body>
+</html>

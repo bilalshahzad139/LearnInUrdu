@@ -1,0 +1,53 @@
+<!--
+    Learning Objective:
+    - Create JSON String from JavaScript Object
+    - Create JavaScript Object from JSON String
+-->
+
+
+<html>
+<head>
+    <title>20</title>
+    <script>
+
+        function Main() {
+        }
+
+        function ObjectToJson() {
+
+            //Create dummy object
+            var obj = new Object();
+            obj.ID = 1;
+            obj.Name = "Bilal";
+            obj.City = "Lahore";
+
+            //Convert above object into JSON string
+            var str = JSON.stringify(obj);
+
+            //show converted JSON string
+            alert(str);
+
+            return false;
+        }
+        function jsonToObject() {
+
+            //Create dummy JSON string
+            var s = '{"ID":"1","Name":"Bilal"}';
+            var o = JSON.parse(s);
+
+            alert(o.ID);
+            alert(o.Name);
+
+            return false;
+        }
+    </script>
+</head>
+<body onload="return Main();">
+
+    <form id="frm">
+
+        <input type="Button" id="btnSubmit1" value="Show JSON string" onclick="ObjectToJson();" />
+        <input type="Button" id="btnSubmit2" value="Convert JSON String to Object" onclick="jsonToObject();" />
+    </form>
+</body>
+</html>

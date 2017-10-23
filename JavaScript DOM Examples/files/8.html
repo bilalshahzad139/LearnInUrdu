@@ -1,0 +1,66 @@
+<!--
+    Learning Objective:
+    Two Numbers Sum Calculator
+-->
+<html>
+<head>
+    <title>8</title>
+    <script>
+
+        function Main() {
+
+            var btn = document.getElementById('btnSubmit');
+            btn.onclick = add;
+
+        }
+
+        function add() {
+            /* 
+            You can read value in two steps
+            -------------------
+            var t1 = document.getElementById('txtFirst');
+            var v = t1.value
+            --------------
+            OR in one step
+            -------------
+            var v = document.getElementById('txtFirst').value;
+            */
+
+
+            var t1 = document.getElementById('txtFirst');
+            var t2 = document.getElementById('txtSecond');
+
+            var r1 = t1.value + t2.value;
+            alert(r1);
+            //Try entering some invalid input in fields and see what comes in f1,f2
+            var f1 = parseInt(t1.value);
+            var f2 = parseInt(t2.value);
+
+            var result = f1 + f2;
+
+            //Check if result is not a number?
+            if (isNaN(result) == true) {
+                alert('Invalid inputs');
+                return false;
+            }
+
+            var t3 = document.getElementById('txtResult');
+
+            t3.value = result;
+
+
+            return false;
+        }
+
+    </script>
+</head>
+<body onload="return Main();">
+
+    <form id="frm">
+        First:<input type="text" id="txtFirst" /> <br>
+        Second:<input type="text" id="txtSecond" /> <br>
+        <input type="submit" id="btnSubmit" />
+        Result:<input type="text" id="txtResult" />
+    </form>
+</body>
+</html>

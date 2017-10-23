@@ -1,0 +1,56 @@
+<!--
+    Learning Objective:
+    More practice of Creating Elements in DOM
+In this, we are creating 10 divs dynamically with different styling.
+-->
+
+<html>
+<head>
+    <title>10</title>
+    <script>
+
+        function Main() {
+        }
+
+        function create() {
+
+            var colors = ['red', 'green', 'yellow', 'pink'];
+            var f = document.getElementById('frm');
+
+            var w = 50;
+            var h = 50;
+
+            for (var i = 0; i < 10; i++) {
+                var d = document.createElement("div");
+
+                w = w + 20 * i;
+                h = h + 5 * i;
+
+                //choose colors in a cycle.
+                c = colors[i % 4];
+                //d.setAttribute("style","background-color:red;width:50px;height:50px;");
+                d.setAttribute("style", "background-color:" + c + ";width:" + w + "px;height:" + h + "px;");
+
+                d.onclick = function () {
+                    alert(this.style.backgroundColor);
+                    alert(this.style.width);
+                    alert(this.style.height);
+                };
+
+                f.appendChild(d);
+            }
+
+            return false;
+        }
+
+    </script>
+</head>
+<body onload="return Main();">
+
+    <form id="frm">
+
+        <input type="submit" id="btnCreate" onclick="return create();" />
+
+    </form>
+</body>
+</html>

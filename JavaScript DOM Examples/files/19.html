@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>19</title>
+    <script>
+
+        //status is a dummy attribute of 'img' tag we've created.
+
+        function onoff() {
+
+            var im = document.getElementById('myImage');
+            var status = im.getAttribute("status")
+            if (status == 0) {
+                im.src = "pic_bulbon.gif";
+                im.setAttribute("status", "1");
+            }
+            else {
+                im.src = "pic_bulboff.gif";
+                im.setAttribute("status", "0");
+            }
+        }
+    </script>
+</head>
+<body>
+    <p> Click on image to on/off it (Images taken from w3schools.com) </p>
+    <img id="myImage" src="pic_bulboff.gif" width="100" height="180" onclick="onoff();" status="0">
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!--
+    Learning Objective:
+    Use of arrays to store some data in key/value format
+-->
+
+
+<html>
+<head>
+    <title>14</title>
+    <script>
+        var arr = new Array();
+
+        function Main() {
+            var btn = document.getElementById('btnSubmit');
+            btn.onclick = function () {
+                var key = document.getElementById("txtKey").value;
+                var code = document.getElementById("txtCode").value;
+                arr[key] = code;
+                alert('Code Added');
+
+                document.getElementById("txtKey").value = "";
+                document.getElementById("txtCode").value = "";
+            }
+
+            var btn1 = document.getElementById('btnShow');
+            btn1.onclick = function () {
+                var c = document.getElementById('container');
+                for (var k in arr) {
+                    c.innerHTML += "---------------";
+                    c.innerHTML += '<br>'
+                    c.innerHTML += '<span>key:' + k + '</span>';
+                    c.innerHTML += '<br>'
+                    c.innerHTML += '<span>code:' + arr[k] + '</span>';
+                    c.innerHTML += '<br>'
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="return Main();">
+
+    Key: <input type="text" id="txtKey"> <br>
+    Code: <textarea id="txtCode" col="10" rows="10"></textarea> <br>
+    <input type="submit" id="btnSubmit" value="Add Code" /> <br>
+    <input type="submit" id="btnShow" value="Show All" /> <br>
+    <div id="container">
+    </div>
+</body>
+</html>

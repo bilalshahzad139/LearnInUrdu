@@ -1,0 +1,34 @@
+<!--
+    Learning Objective:
+    Finding an element in DOM, Attaching an event
+-->
+
+<html>
+<head>
+    <title>7</title>
+    <script>
+
+        function Main() {
+
+            var btn = document.getElementById('btnSubmit');
+            btn.onclick = my;
+
+        }
+
+        function my() {
+            var t = document.getElementById('txtName');
+            alert('value:' + t.value);
+            alert('id:' + t.id);
+            alert('type:' + t.type);
+        }
+
+    </script>
+</head>
+<body onload="return Main();">
+
+    <form id="frm">
+        <input type="text" id="txtName" />
+        <input type="submit" id="btnSubmit" />
+    </form>
+</body>
+</html>

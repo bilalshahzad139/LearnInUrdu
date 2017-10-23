@@ -1,0 +1,39 @@
+<!--
+    Learning Objective:
+    Basic Understanding of Arrays
+-->
+
+<html>
+<head>
+    <title>4</title>
+    <script>
+        function Main() {
+            //Array with 5 elements
+            var arr = new Array(5, 10, 15, 20, "Pakistan");
+
+            for (var i = 0; i < arr.length; i++) {
+                document.writeln("value of arr is:" + arr[i]);
+                document.writeln("<br>");
+            }
+
+            //associative arry, 'Key/Value' based data.
+            arr['test'] = 'More data';
+
+            document.writeln('-----------------------------');
+            document.writeln('<br>');
+
+            document.writeln('data :' + arr[0]);
+            document.writeln('<br>');
+
+            document.writeln('data :' + arr[1]);
+            document.writeln('<br>');
+
+            document.writeln('data :' + arr['test']);
+            document.writeln('<br>');
+
+        }
+    </script>
+</head>
+<body onload="return Main();">
+</body>
+</html>

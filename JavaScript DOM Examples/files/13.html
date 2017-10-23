@@ -1,0 +1,89 @@
+<!--
+    Learning Objective:
+    - Creating different types of elements dynamically
+    - Hadnling click event of dynamically created element
+    - Removing an element from DOM
+-->
+
+<html>
+<head>
+    <title>13</title>    
+    <script>
+        
+        
+        function Main(){
+           
+            var btn = document.getElementById('btnCreate');
+			
+            btn.onclick = function(){
+			
+                var cmb = document.getElementById('cmbControl');
+                
+                var obj = null;
+                
+                if(cmb.value == "Text"){
+                    obj = document.createElement("input");
+                    obj.setAttribute('type','text');
+                }
+                else if(cmb.value == "Pswd"){
+                    obj = document.createElement("input");
+                    obj.setAttribute('type','password');
+                }
+                else if(cmb.value == "Btn"){
+                    obj = document.createElement("input");
+                    obj.setAttribute('type','button');
+                    obj.setAttribute('value','Button');
+                }
+                else if(cmb.value == "Rdo"){
+                    obj = document.createElement("input");
+                    obj.setAttribute('type','radio');
+                }
+                else if(cmb.value == "Chk"){
+                    obj = document.createElement("input");
+                    obj.setAttribute('type','checkbox');
+                }
+                
+                var dummyDiv = document.createElement('div');
+                dummyDiv.appendChild(obj);
+                
+                var link = document.createElement('a');
+                link.setAttribute('href','#');
+                link.innerText = "X";
+                link.onclick = function(){
+                    var mc = document.getElementById('container');
+					//Delete parent of 'this' link.
+                    mc.removeChild(this.parentNode);
+                    return false;
+                }
+                
+                dummyDiv.appendChild(link);
+                
+                var container = document.getElementById('container');
+                container.appendChild(dummyDiv);
+                
+            }
+        }
+    </script>
+    
+</head>
+<body onload="return Main();">
+
+Choose Specific Control and Press Create: 
+    <div>
+        <select id='cmbControl'>
+            <option value="Text">TextBox</option>
+            <option value="Pswd">Password</option>
+            <option value="Btn">Button</option>
+            <option value="Rdo">RadioButton</option>
+            <option value="Chk">CheckBox</option>
+        </select> 
+        <input type="submit" id="btnCreate" value="Create" />
+    </div>
+    
+    
+    <div id="container">
+        
+    </div>
+    
+</body>
+</html>

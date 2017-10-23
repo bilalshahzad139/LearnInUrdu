@@ -1,0 +1,101 @@
+<!--
+    Learning Objective:
+    Creating a dynamic structure to get multiple records
+-->
+
+
+<html>
+<head>
+    <title>15</title>
+    <script type="text/javascript">
+
+        var rowCounter = 0;
+
+        function Main() {
+
+            var btn = document.getElementById("btnAdd");
+            btn.onclick = ClickEventHandler;
+        }
+
+        function ClickEventHandler() {
+
+            /* We want to create a structure liks this one when
+            button is clicked
+
+            <div class="row">
+                 <span>1 Degree:</span> <input type="text" id="txtDegree" />
+                 <span>Name:  </span><input type="text" id="txtName" />
+                 <span>Marks:</span> <input type="text" id="txtMarks" />
+                 <input type="submit" id="btnRemove" value="Remove" />
+            </div>
+            */
+
+            rowCounter++;
+
+            var row = document.createElement("div");
+            row.setAttribute("class", "row");
+
+            var span = document.createElement("span");
+            span.innerText = rowCounter + " Degree:";
+            row.appendChild(span);
+
+            var inp = document.createElement("input");
+            inp.setAttribute("type", "text");
+            inp.setAttribute("id", "txtDegree");
+            row.appendChild(inp);
+
+            span = document.createElement("span");
+            span.innerText = " Name:";
+            row.appendChild(span);
+
+            inp = document.createElement("input");
+            inp.setAttribute("type", "text");
+            inp.setAttribute("id", "txtName");
+            row.appendChild(inp);
+
+            span = document.createElement("span");
+            span.innerText = " Marks:";
+            row.appendChild(span);
+
+            inp = document.createElement("input");
+            inp.setAttribute("type", "text");
+            inp.setAttribute("id", "txtMarks");
+            row.appendChild(inp);
+
+            inp = document.createElement("input");
+            inp.setAttribute("type", "submit");
+            inp.setAttribute("id", "btnRemove");
+            inp.setAttribute("value", "Remove");
+
+            inp.onclick = function () {
+                var result = confirm("Do you want to Remove?");
+                if (result) {
+                    var mc = document.getElementById('maincontainer');
+                    mc.removeChild(this.parentNode);
+                }//End of if
+            }
+
+            row.appendChild(inp);
+
+            //Add in the page
+            var mainContainer = document.getElementById('maincontainer');
+            mainContainer.appendChild(row);
+
+        }
+
+    </script>
+
+</head>
+<body onload="return Main();">
+
+    <div id="maincontainer">
+
+    </div>
+    <div>
+        <input type="submit" id="btnAdd" value="Add" />
+
+    </div>
+
+
+</body>
+</html>

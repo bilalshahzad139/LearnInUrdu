@@ -1,0 +1,69 @@
+<!--
+    Learning Objective:
+    - window.screen object example
+    - how to redirect to a url in JS
+    - Opening a link in new window
+    - window.confirm function
+
+-->
+
+<html>
+<head>
+    <title>18</title>
+    <script>
+
+        function Main() {
+        }
+
+        function showscreen() {
+
+            alert('screen height:' + window.screen.height);
+            alert('screen width:' + window.screen.width);
+
+            return false;
+        }
+        function gotourl() {
+
+            var u = document.getElementById('txturl');
+            window.location.href = u.value;
+
+            return false;
+        }
+        function openurl() {
+
+            var u = document.getElementById('txturl2');
+            window.open(u.value, "_blank", "height=500px,width=500px");
+
+            return false;
+        }
+        function openconfirm() {
+
+            var r = window.confirm("Do you want to confirm?");
+            if (r == true)
+                alert("OK is pressed");
+            else
+                alert("Cancel is pressed");
+
+            return false;
+        }
+    </script>
+</head>
+<body onload="return Main();">
+
+    <h1> Some objects of 'window' </h1>
+
+    <a href="#" onclick="return showscreen();">Show screen height and width </a>
+    <br>
+    <br>
+    URL:<input type="text" id="txturl" value="http://yahoo.com" />
+    <a href="#" onclick="return gotourl();">Go to typed url </a>
+    <br>
+    <br>
+    URL:<input type="text" id="txturl2" value="http://www.w3schools.com/jsref/met_win_open.asp" />
+    <a href="#" onclick="return openurl();">open typed url in new window </a>
+    <br>
+    <br>
+    <a href="#" onclick="return openconfirm();">open a confirm box </a>
+
+</body>
+</html>

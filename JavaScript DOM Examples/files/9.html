@@ -1,0 +1,45 @@
+<!--
+    Learning Objective:
+    Create elements in DOM
+-->
+<html>
+<head>
+    <title>9</title>
+    <script>
+
+        function Main() {
+
+
+        }
+
+        function create() {
+            alert('create clicked');
+
+            var f = document.getElementById('frm');
+
+            var t = document.createElement("input");
+            t.setAttribute("type", "text");
+
+            f.appendChild(t);
+
+            t = document.createElement("img");
+            t.setAttribute("src", "pic_bulbon.gif");
+
+            f.appendChild(t);
+
+
+
+            return false;
+        }
+
+    </script>
+</head>
+<body onload="return Main();">
+
+    <form id="frm">
+
+        <input type="submit" id="btnCreate" onclick="return create();" />
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!--
+    Learning Objective:
+    Removing elements from DOM
+-->
+
+<html>
+<head>
+    <title>11</title>
+    <script>
+
+        function Main() {
+
+            var l = document.getElementById('lnkDeleteMe');
+            l.onclick = function () {
+                //We need parent of an element to remove that 'element'
+                var cont = document.getElementById('container');
+                cont.removeChild(this);
+            };
+
+            var p = document.getElementById('lnkMyParent');
+            p.onclick = function () {
+
+                var f = document.getElementById('frm');
+
+                //We want to remove container element
+                var d = document.getElementById('container');
+                f.removeChild(d);
+                
+                //OR we can also find parent of 'this' by parentNode
+                //f.removeChild(this.parentNode);
+            };
+        }
+
+    </script>
+</head>
+<body onload="return Main();">
+
+    <h1> How to remove an element from page </h1>
+
+    <form id="frm">
+
+        <div id="container" style="border:solid 1px red">
+            <a href="#" id="lnkDeleteMe">Delete Me </a>
+            <br>
+            <a href="#" id="lnkMyParent">Delete My Parent </a>
+        </div>
+    </form>
+</body>
+</html>

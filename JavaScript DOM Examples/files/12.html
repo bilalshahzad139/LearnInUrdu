@@ -1,0 +1,81 @@
+<!--
+    Learning Objective:
+    Call one function on click events of different elements
+    then decide based on 'id' of caller
+    'this' in case of inline represents the 'element'
+-->
+
+<html>
+<head>
+    <title>12</title>
+    <script>
+
+        function Main() {
+
+        }
+
+        //this function is being called by multiple items but
+        //whoever is clicking it, sending 'this' in it.
+        //so from its 'id', we can check who is 'caller'
+
+        function handleclick(obj) {
+            alert(obj.id);
+
+            if (obj.id == "lnkShowTxt") {
+                var el = document.getElementById('txtData1');
+                alert(el.value);
+            }
+            else if (obj.id == "lnkShowPswd") {
+                var el = document.getElementById('txtData2');
+                alert(el.value);
+            }
+            else if (obj.id == "lnkShowhead") {
+                var el = document.getElementById('head');
+                alert(el.innerText);
+            }
+            else if (obj.id == "lnkShowSP") {
+                var el = document.getElementById('sp');
+                alert(el.innerText);
+            }
+            else if (obj.id == "lnkShowcmb") {
+                var el = document.getElementById('cmb');
+                alert(el.value);
+            }
+        }
+
+    </script>
+</head>
+<body onload="return Main();">
+
+    <h1> How to get values from different elements </h1>
+
+    <form id="frm">
+
+        <div id="container" style="border:solid 1px red">
+            <input type="text" id="txtData1" />
+            <a href="#" id="lnkShowTxt" onclick="return handleclick(this);">Show Text Data </a>
+            <br>
+
+            <input type="password" id="txtData2" />
+            <a href="#" id="lnkShowPswd" onclick="return handleclick(this);">Show Password Data </a>
+            <br>
+
+            <h1 id="head">Heading 1 data </h1>
+            <a href="#" id="lnkShowhead" onclick="return handleclick(this);">Show heading Data </a>
+            <br>
+            <br>
+
+            <span id="sp">span data </span>
+            <a href="#" id="lnkShowSP" onclick="return handleclick(this);">Show span Data </a>
+            <br>
+            <br>
+            <select id="cmb">
+                <option value="1">Lahore </option>
+                <option value="2">Karachi</option>
+            </select>
+            <a href="#" id="lnkShowcmb" onclick="return handleclick(this);">Show cmb selected item </a> <br>
+
+        </div>
+    </form>
+</body>
+</html>
