@@ -1,0 +1,45 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	
+	$(document).ready(ReadyMain);
+		
+	function ReadyMain(){
+		
+		$('#lnkDeleteMe').click(function(){
+			//Remove this element
+			$(this).remove();
+			return false;
+		});
+	
+		$('#lnkDelMyParent').click(function(){
+			
+			//closest finds the parent in parents' herirachy which fullfils the 'selector'
+			//here find parent of this element but that parent which is "div and id=container"
+			$(this).closest("div#container").remove();		
+			
+			return false;
+		});
+	}
+	
+	
+	
+</script>
+
+</head>
+<body >
+
+	<form id="frm" >
+		
+		<div id="container" style="border:solid 1px red">
+			<a href="#" id="lnkDeleteMe">Click me to Delete Me </a>
+			<br>
+			<a href="#" id="lnkDelMyParent">Click me to Delete My Parent </a>		
+		</div>
+	</form>
+
+</body>
+</html>

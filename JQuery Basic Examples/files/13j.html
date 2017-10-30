@@ -1,0 +1,86 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	
+	$(document).ready(ReadyMain);
+	
+	function ReadyMain(){
+	
+		var btn = $('#btnCreate');
+			
+            btn.click(function(){
+			
+                var cmb = $('#cmbControl');
+                
+                var obj = null;
+                
+                if(cmb.val() == "Text"){
+                    obj = $("<input>").attr('type','text');
+                }
+                else if(cmb.val() == "Pswd"){
+                    obj = $("<input>").attr('type','password');
+                }
+                else if(cmb.val() == "Btn"){
+                    obj = $("<input>").attr({'type':'button','value':'Button'});
+                }
+                else if(cmb.val() == "Rdo"){
+                    obj = $("<input>").attr('type','radio');
+                }
+                else if(cmb.val() == "Chk"){
+                    obj = $("<input>").attr('type','checkbox');
+                }
+                
+                var dummyDiv = $('<div class="dummy">');
+                dummyDiv.append(obj);
+                
+                var link = $('<a>').attr('href','#').text("X");
+                dummyDiv.append(link);
+                
+				link.click(function(){
+                    
+					//Delete parent of 'this' link.
+                    $(this).closest('div.dummy').remove();
+					
+                    return false;
+                });//end of link click
+                
+				
+                var container = $('#container');
+                container.append(dummyDiv);
+                
+            });//End of click function
+	}//End of ReadyMain
+	
+	
+	
+	
+	
+</script>
+
+</head>
+<body >
+
+	<h1> Choose Specific Control and Press Create:  </h1>
+	
+	
+    <div>
+        <select id='cmbControl'>
+            <option value="Text">TextBox</option>
+            <option value="Pswd">Password</option>
+            <option value="Btn">Button</option>
+            <option value="Rdo">RadioButton</option>
+            <option value="Chk">CheckBox</option>
+        </select> 
+        <input type="submit" id="btnCreate" value="Create" />
+    </div>
+    
+    
+    <div id="container">
+        
+    </div>
+
+</body>
+</html>

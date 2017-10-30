@@ -1,0 +1,60 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	
+	$(document).ready(ReadyMain);
+		
+	function ReadyMain(){
+	
+		//Find Element with id=btnSubmit and attach a function with click.
+		$("#btnSubmit").click(myFunc);
+	}
+	
+	function myFunc(){
+		
+		//Here 'this' is representing the caller i.e. btnSubmit button
+		alert('inside myFunc:  ' + this.id);
+		
+		
+		var t1 = $('#txtFirst');
+		var t2 = $('#txtSecond');
+		var r1 = t1.val() + t2.val();
+		alert(r1);
+		
+		var f1 = Number(t1.val());
+		var f2 = Number(t2.val());
+		
+		var r2 = f1 + f2;
+		
+		//If numbers are invalid, result will be NaN
+		//isNaN checks if provided number is valid or not
+		if(isNaN(r2) == true){
+			alert('Invalid input');
+			return false;
+		}
+		
+		var t3 = $('#txtResult');
+		
+		//To set value, also use val() function with data to write.
+		t3.val(r2);
+		
+		return false;
+	}
+	
+</script>
+
+</head>
+<body >
+
+	<form id="frm" >
+		First:<input type="text" id="txtFirst" /> <br>
+		Second:<input type="text" id="txtSecond" /> <br>
+		<input type="submit" id="btnSubmit" />
+		Result:<input type="text" id="txtResult" />
+	</form>
+
+</body>
+</html>

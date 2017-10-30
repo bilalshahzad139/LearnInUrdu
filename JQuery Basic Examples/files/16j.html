@@ -1,0 +1,74 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+<style>
+	.row{
+		border:solid 1px red;
+		margin:15px;
+		width:125px;
+		float:left;
+		padding:5px;
+	}
+	.selected
+	{
+		background-color:lime;
+	}
+</style>
+<script>
+	
+	var rowCounter = 0;
+	
+	$(document).ready(ReadyMain);
+	
+	function ReadyMain(){
+	
+		//Create Some random DIVS dynamically
+		
+		$('#btnGenerate').click(function(){
+			
+			for(var i=0;i<100;i++)
+			{
+				var div = $('<div class="row"> Name: <a href="#">Bilal </a><br> City: Lahore <br>College: PUCIT </div>');
+				$("#maincontainer").append(div);
+			}
+			
+			//Once DIVS are generated and part of page
+			//Apply some action on these DIVs
+			$("#maincontainer div.row").click(function(){
+				
+				if($(this).hasClass('selected') == true)
+				{
+					$(this).removeClass('selected');
+				}
+				else
+				{
+					$(this).addClass('selected');
+				}
+			
+			});//End of DIV click
+		
+			
+		});//End of generate button click
+		
+	}//End of ReadyMain
+	
+	
+	
+	
+</script>
+
+</head>
+<body >
+
+	<h1> Create Dynamic Content, Click on any DIV once created  </h1>
+	
+	<input type="submit" value='Generate Random DIVS' id="btnGenerate" />
+	
+	<div id="maincontainer">
+        
+    </div>
+    
+
+</body>
+</html>

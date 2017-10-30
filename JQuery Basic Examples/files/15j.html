@@ -1,0 +1,111 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+<style>
+	.row{
+		border:solid 1px red;
+		margin-top:5px;
+	}
+</style>
+<script>
+	
+	var rowCounter = 0;
+	
+	$(document).ready(ReadyMain);
+	
+	function ReadyMain(){
+	
+		$("#btnAdd").click(ClickEventHandler);
+		$("#btnShow").click(ShowData);
+		
+	}//End of ReadyMain
+	
+	function ClickEventHandler(){
+            
+            /* We want to create a structure liks this one when 
+            button is clicked
+            
+            <div class="row">
+                 <span>1 Degree:</span> <input type="text" id="txtDegree" />
+                 <span>Name:  </span><input type="text" id="txtName" />
+                 <span>Marks:</span> <input type="text" id="txtMarks" />
+                 <input type="submit" id="btnRemove" value="Remove" />
+            </div>
+            */
+            
+            rowCounter++;
+            
+            var row = $("<div>").attr("class","row");
+            
+            var span = $("<span>").text(rowCounter + " Degree:");
+            row.append(span);
+            
+            var inp = $("<input>").attr({"type":"text","id":"txtDegree"});
+            row.append(inp);
+            
+            span = $("<span>").text(" Name:");
+            row.append(span);
+            
+            inp = $("<input>").attr({"type":"text","id":"txtName"});
+            row.append(inp);
+            
+            span = $("<span>").text(" Marks:");
+            row.append(span);
+            
+            inp = $("<input>").attr({"type":"text","id":"txtMarks"});
+            row.append(inp);
+            
+            inp = $("<input>").attr({"type":"submit","id":"btnRemove","value":"Remove"});
+            
+            inp.click(function(){
+                var result = confirm("Do you want to Remove?");
+                if(result){
+					$(this).closest('div.row').remove();                    
+                }//End of if
+            });
+            
+            row.append(inp);
+            
+            //Add in the page
+            $('#maincontainer').append(row);
+           
+        }//end of ClickEventHandler
+	
+		function ShowData (){
+		
+			//In element with id=maincontainer, find all 'DIVs' with class=row
+			//Iterate all these elements one by one.
+			$("#maincontainer div.row").each(function(){
+			
+				//here 'this' means specific DIV
+				//Find Degree, Name & Marks by ID from specific Row(DIV)
+				var d = $(this).find("#txtDegree").val();
+				var n = $(this).find("#txtName").val();
+				var m = $(this).find("#txtMarks").val();
+				
+				alert('Degree:' + d + ', Name:' + n + ', Marks:' + m);
+			});
+			
+			return false;
+		}
+	
+	
+</script>
+
+</head>
+<body >
+
+	<h1> Create Dynamic Rows  </h1>
+	
+	
+  <div id="maincontainer">
+        
+    </div>
+    <div>
+        <input type="submit" id="btnAdd" value="Add" /> 
+        <input type="submit" id="btnShow" value="Get And Dhow" /> 
+    </div>
+
+</body>
+</html>

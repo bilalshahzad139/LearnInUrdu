@@ -1,0 +1,53 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	
+	$(document).ready(ReadyMain);
+		
+	function ReadyMain(){
+			
+		$("#btnCreate").click(create);
+	}
+	
+	function create(){
+		alert('create clicked');
+		
+		var f = $('#frm');		
+		
+		//var t = document.createElement("input");
+		var t = $("<input>"); //Create input element in memory
+		
+		t.attr("type","text");
+		
+		//Append t element in form
+		f.append(t);
+		
+		
+		//t = document.createElement("img");
+		t = $("<img>"); //Create img element in memory
+		
+		t.attr("src","pic_bulbon.gif");
+		
+		f.append(t);
+		
+		
+		
+		return false;
+	}
+	
+</script>
+
+</head>
+<body >
+
+	<form id="frm" >
+		
+		<input type="submit" id="btnCreate"  />
+		
+	</form>
+
+</body>
+</html>

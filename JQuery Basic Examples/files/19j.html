@@ -1,0 +1,98 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+<style>
+	.odd{
+		background-color:grey;    
+	}
+	.even{
+		background-color:red;    
+	}
+</style>
+<script>
+	
+	
+	$(document).ready(ReadyMain);
+	
+	function ReadyMain(){
+	
+		$("#btn1").click(function(){
+			/*Find tbody and then find tr inside it, which are on "odd" position
+			if rows are indexed from 0. */
+			$("tbody tr:odd").addClass('odd');
+			
+			/*Find tbody and then find tr inside it, which are on "even" position
+			if rows are indexed from 0. */
+			$("tbody tr:even").addClass('even');
+		 
+		}); //end of click
+
+		$("#btn2").click(function(){
+
+			//iterate on tbody tr
+			var counter = 0 ;
+			//Here find elements by 'selector', iterate each element
+			$("tbody tr").each(function(){
+				//Here this is representing each element.
+				//td:nth(1) means from "tds" find which is at index 1
+				//first column index =0, second column index = 1 and so on.
+				
+				$(this).find("td:nth(1)").text('Testing...' + counter);
+				counter++;
+				
+			});//End of each
+			
+		}); //end of click
+	}//End of ReadyMain
+	
+	
+	
+	
+</script>
+
+</head>
+<body >
+	<h1> Pseudo Selectors and 'each' function demo </h1>
+	
+	<table border="1">
+		<thead>
+		<tr>
+			<td>Name</td>
+			<td>Address</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>ABC</td>
+			<td>Lahore</td>
+		</tr>
+		<tr>
+			<td>ABC 2</td>
+			<td>Lahore 2</td>
+		</tr>
+		<tr>
+			<td>ABC 3</td>
+			<td>Lahore 3</td>
+		</tr>
+		<tr>
+			<td>ABC 4</td>
+			<td>Lahore 4</td>
+		</tr>
+		<tr>
+			<td>ABC 5</td>
+			<td>Lahore 5</td>
+		</tr>
+		<tr>
+			<td>ABC6</td>
+			<td>Lahore6</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<input type="submit" id="btn1" Value="Change" />
+	<input type="submit" id="btn2" Value="Add" />
+    
+
+</body>
+</html>

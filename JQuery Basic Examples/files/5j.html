@@ -1,0 +1,46 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	
+	$(document).ready(ReadyMain);
+		
+	function ReadyMain(){
+	
+		alert('in ready function, style will be applied after alert');
+		//TAG based selector. 
+		//Find all "P" elements and and apply the style
+		$("p").css('border','solid 1px red');
+		
+		alert('next style will be applied after alert');
+		//ID based selector
+		//Find element with ID=para and apply css.
+		//To do same in JavaScript: document.getElementById('para')
+		$("#para").css('background-color','yellow');
+		
+		
+		alert('next style will be applied after alert');
+		//Class based selector
+		//Find element with class=dummy and apply css.
+		$(".dummy").css('font-weight','bold');
+		
+		
+		alert('check now in chrome DEV Tools the status of these Ps after this alert');
+	}
+	
+	
+</script>
+
+</head>
+<body >
+
+ <p> This is simple paragraph </p>
+ <p id="para" class="dummy"> This is paragraphi with id=para and class=dummy </p>
+ <p class="dummy"> This is paragraphi with class=dummy </p>
+ 
+ <div class="dummy"> This is a DIV with class=dummy</div>
+
+</body>
+</html>

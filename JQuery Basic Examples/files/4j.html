@@ -1,0 +1,40 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	
+	$(document).ready(ReadyMain);
+		
+	function ReadyMain(){
+	
+		alert('in ready function, style will be applied after alert');
+		//TAG based selector. 
+		//Find all "P" elements and and apply the style
+		$("p").css('border','solid 1px red');
+		
+		alert('next style will be applied after alert');
+		//ID based selector
+		//Find element with ID=para and apply css.
+		//To do same in JavaScript: document.getElementById('para')
+		$("#para").css('background-color','yellow');
+		
+		
+		
+		alert('check now in chrome DEV Tools the status of these Ps after this alert');
+	}
+	
+	
+</script>
+
+</head>
+<body >
+
+ <p> Testing Testing </p>
+ <p id="para"> Hello Hello </p>
+ 
+ 
+
+</body>
+</html>

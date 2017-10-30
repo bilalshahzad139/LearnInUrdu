@@ -1,0 +1,107 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	
+	$(document).ready(ReadyMain);
+	
+	function ReadyMain(){
+	
+		$("#lnkShowTxt").click(handleclick);
+		$("#lnkShowPswd").click(handleclick);
+		$("#lnkShowhead").click(handleclick);
+		$("#lnkShowSP").click(handleclick);
+		$("#lnkShowcmb").click(handleclick);
+		$("#lnkShowDIV").click(handleclick);
+		
+	}//End of ReadyMain
+	
+	function handleclick(){
+	
+		//Here 'this' will represent the caller
+		alert('Who is clicked:' + this.id);
+		
+		//Check who is clicked, We can check by the 'id' property of caller.
+		if(this.id == "lnkShowTxt")
+		{
+			var el = $('#txtData1');
+			alert('For Input Controls,We use val(): ' + el.val());
+		}
+		else if(this.id == "lnkShowPswd")
+		{
+			var el = $('#txtData2');
+			alert('For Input Controls,We use val(): ' + el.val());
+		}
+		else if(this.id == "lnkShowhead")
+		{
+			var el = $('#head');
+			alert('For textual elements we use text(): ' + el.text());
+		}
+		else if(this.id == "lnkShowSP")
+		{	
+			var el = $('#sp');
+			alert('For textual elements we use text(): ' +el.text());
+		
+		}
+		else if(this.id == "lnkShowcmb")
+		{
+			var el = $('#cmb');
+			alert('For select,We use val(): ' + el.val());
+			
+		}
+		else if(this.id == "lnkShowDIV")
+		{
+			var el = $('#div1');
+			alert('html(): ' + el.html());
+			alert('text(): ' + el.text());
+		}
+		return false;
+		
+	}//End of handleclick
+	
+	
+	
+</script>
+
+</head>
+<body >
+
+	<h1> How to get values from different elements </h1>
+	
+	<form id="frm" >
+		
+		<div id="container" style="border:solid 1px red">
+			<input type="text" id="txtData1" /> 
+			<a href="#" id="lnkShowTxt"  >Show Text Data </a> 
+			<br>
+			
+			<input type="password" id="txtData2" /> 
+			<a href="#" id="lnkShowPswd" >Show Password Data </a> 
+			<br>
+			
+			<h1 id="head">Heading 1 data </h1> 
+			<a href="#" id="lnkShowhead" >Show heading Data </a> 
+			<br>
+			<br>
+			<div id="div1" style="border:solid 1px blue"> Div Data <h1>Testing </h1> </div> 
+			<a href="#" id="lnkShowDIV" >Show DIV Data </a>
+			<br>
+			<br>
+			<span id="sp">span data </span> 
+			<a href="#" id="lnkShowSP" >Show span Data </a>
+			<br>
+			<br>
+			
+			<select id="cmb">
+				<option value="1">Lahore </option>
+				<option value="2">Karachi</option>
+			</select>
+			<a href="#" id="lnkShowcmb" >Show cmb selected item </a> <br>
+				
+		</div>
+	</form>
+
+</body>
+</html>

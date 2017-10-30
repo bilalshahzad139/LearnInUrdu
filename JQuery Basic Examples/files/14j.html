@@ -1,0 +1,64 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	
+	var arr = new Array();
+	
+	$(document).ready(ReadyMain);
+	
+	function ReadyMain(){
+	
+		var btn = $('#btnSubmit');
+		btn.click(function(){
+			var key = $("#txtRollNo").val();
+			var code = $("#txtAddress").val();
+			arr[key] = code;
+			alert('Code Added');
+			
+			$("#txtRollNo").val("");
+			$("#txtAddress").val("");
+		});//end of add button click function
+            
+		var btn1 = $('#btnShow');
+		btn1.click(function(){
+			var c = $('#container');
+			for(var k in arr){
+				var h = $('#container').html();
+				
+				h += "---------------";
+				h += '<br>'
+				h += '<span>Roll#:'+ k + '</span>';
+				h += '<br>'
+				h += '<span>Address:'+ arr[k]+ '</span>';
+				h += '<br>'
+				
+				$('#container').html(h);
+				
+			}
+		});//end of show button click function
+	}//End of ReadyMain
+	
+	
+	
+	
+	
+</script>
+
+</head>
+<body >
+
+	<h1> Choose Roll # & Address and Press Add  </h1>
+	
+	
+   Roll#: <input type="text" id="txtRollNo" > <br>
+    Address: <textarea id="txtAddress" col="10" rows="10"></textarea> <br>
+<input type="submit" id="btnSubmit" value="Add"/> <br>
+<input type="submit" id="btnShow" value="Show All"/> <br>
+    <div id="container">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	
+	$(document).ready(ReadyMain);
+		
+	function ReadyMain(){
+			
+		$("#btnCreate").click(create);
+	}
+	
+	function create(){
+		alert('create clicked');
+		
+		var colors = ['red','green','yellow','pink'];
+		
+		var f = $('#frm');		
+		
+		var w = 50;
+		var h = 50;
+		
+		for(var i=0;i<10;i++)
+		{
+			var d = $("<div>");//Create DIV in memory
+			
+			w = w + 20*i;
+			h = h + 5*i;
+			
+			//choose colors in a cycle.
+			c = colors[i%4];
+			
+			//d.setAttribute("style","background-color:red;width:50px;height:50px;");
+			d.attr("style","background-color:"+c+";width:"+w+"px;height:"+h+"px;");
+			
+			d.click(function(){
+				
+				/*--here 'this' means that specific DIV on which 'click' will happen.
+				-- $(this) means 'wrapp' that JavaScript object into jQuery object.
+				*/
+				
+				//alert(this.style.backgroundColor); //JavaScript
+				alert($(this).css('background-color')); //jQuery
+				
+				//alert(this.style.width);
+				alert($(this).css('width'));
+				
+				//alert(this.style.height);			
+				alert($(this).css('height'));
+				
+			});//End of click
+			
+			f.append(d);
+		}
+		
+		return false;
+	}
+	
+</script>
+
+</head>
+<body >
+
+	<form id="frm" >
+		
+		<input type="submit" id="btnCreate"  />
+		
+	</form>
+
+</body>
+</html>

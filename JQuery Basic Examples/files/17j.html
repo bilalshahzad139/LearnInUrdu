@@ -1,0 +1,95 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+<style>
+	.menuitem
+	{
+		display:inline;
+		background-color:grey;
+		padding:10px;
+		margin:3px;
+		position:relative;
+	}
+	div.submenu
+	{
+		display:none;
+		position: absolute;
+		left:10px;
+		top:35px;
+		background-color:yellow;
+		width:100px;
+		padding:5px;
+		z-index:2;
+	}
+	.menuitem:hover{
+		background-color:green;
+		color:blue;
+	}
+</style>
+<script>
+	
+	
+	$(document).ready(ReadyMain);
+	
+	function ReadyMain(){
+	
+		//for documentation https://api.jquery.com/hover/
+		//First function in 'hover' will be called when is hovered.
+		//Second function will be called when hovering is done.
+		
+		$(".menuitem a.link").hover(function(){
+			//Show submenu div on hover
+			//here 'this' means link, find its closest parent which is div and class=menuitem
+			//and then find submenu div in it and show it.
+			$(this).closest("div.menuitem").find("div.submenu").show();
+			return false;
+		},
+		function(){
+			//hide submenu div on hover
+			$(this).closest("div.menuitem").find("div.submenu").hide();    
+		});
+		
+	}//End of ReadyMain
+	
+	
+	
+	
+</script>
+
+</head>
+<body >
+
+	<h1> A Small Menu demo using jQuery/CSS </h1>
+	
+	<a href="https://jsfiddle.net/x5bo2kcg/24/" > Also available on jsfiddle </a>
+	<br>
+	<br>
+	<br>
+	<div>
+		<div class="menuitem">
+			<a href="#" class="link" > File </a>
+			<div class="submenu">
+				<a href="#" > New </a> <br>
+				<a href="#" > Open </a>
+			</div>
+		</div>
+		<div class="menuitem">
+			<a href="#" class="link"> Edit </a>
+			<div class="submenu">
+				<a href="#" > Copy </a> <br>
+				<a href="#" > Paste </a>
+			</div>
+		</div>
+		<div class="menuitem">
+			<a href="#" class="link"> View </a>
+			<div class="submenu">
+				<a href="#" > Find </a> <br>
+				<a href="#" > Find All </a>
+			</div>
+		</div>
+	</div>
+    
+
+</body>
+</html>

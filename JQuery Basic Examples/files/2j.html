@@ -1,0 +1,26 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+
+<script>
+	//DOM ready function is fired when DOM is ready. It doesn't wait for all content to load.
+	//$ is alias of jQuery.
+	$(document).ready(ReadyMain);
+		
+	function ReadyMain(){
+			alert('on Dom Ready');
+			
+	}
+	
+	//Body load event is fired after DOM ready. It is fired once all content is loaded.
+	function Main(){
+			alert('on body load');
+	}
+</script>
+
+
+</head>
+<body onload="return Main();">
+</body>
+</html>

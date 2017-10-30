@@ -1,0 +1,60 @@
+<html>
+<head>
+
+<script src="jquery.js" type="text/javascript" ></script>
+<style>
+	
+</style>
+<script>
+	
+	
+	$(document).ready(ReadyMain);
+	
+	function ReadyMain(){
+	
+		$("#btn1").click(function(){
+			//Here we can make "GET" request to any resource using $.get method.
+			
+			$.get( "https://api.ipify.org/?format=json", function( data ) {
+				console.log(data);
+				$( ".result" ).html("Your Public Ip address is:" +  data.ip );				
+			});
+			
+			
+			
+		});
+		
+		$("#btn2").click(function(){
+			$.getJSON("https://restcountries.eu/rest/v1/all", function(jj) {
+				
+				for(var i=0;i<jj.length;i++)
+				{
+					var obj = jj[i];
+					$( ".countries" ).append("<div>Name:" + obj.name + ",Captiral:" + obj.capital + "</div>");
+				}
+			});
+		});
+	}//End of ReadyMain
+	
+	
+	
+	
+</script>
+
+</head>
+<body >
+	<h1> $.get and $.getJSON </h1>
+	<input type="button" id="btn1" Value="Get IP address from API" />
+	
+	<div class="result">
+	
+	</div>
+	<input type="button" id="btn2" Value="Get Countries from API" />
+	
+	<div class="countries">
+	
+	</div>
+    
+
+</body>
+</html>
