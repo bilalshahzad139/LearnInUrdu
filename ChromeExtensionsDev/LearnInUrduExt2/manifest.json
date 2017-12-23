@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Learn In Urdu Extension 2",
+  "version": "2", 
+  "content_scripts": [
+    {
+      "matches": ["*://*.google.com.pk/*","*://*.google.com/*"],
+      "js": ["jquery-2.2.4.min.js","scripts/content_for_google.js"]
+    },
+	{
+      "matches": ["*://learninginurdu.pk/*"],
+	  "css" : ["styles/learninginurdu.css"],
+      "js": ["jquery-2.2.4.min.js","scripts/content_for_learninginurdupk.js"]	  
+    },
+	{
+      "matches": ["*://*.yahoo.com/*"],	  
+      "js": ["scripts/content_for_yahoo.js"]	  
+    }
+  ]
+}
+
+
+
+
