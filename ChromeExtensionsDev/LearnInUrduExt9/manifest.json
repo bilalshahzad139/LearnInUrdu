@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Learn in Urdu Extension 9",
+  "version": "9",
+	"browser_action":{
+		"default_icon":"icon.png",
+		"default_popup": "popup.html"
+	},
+  "chrome_url_overrides" : {
+    "newtab": "myPageForNewTab.html"
+  },
+  "options_page": "options.html",
+  "permissions": [
+       "tabs",
+	   "storage",
+	   "bookmarks"
+   ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["scripts/jquery-2.2.4.min.js","scripts/content.js"]
+    }
+  ],
+  "web_accessible_resources": ["icon.png"]
+}
+
+
+
+
