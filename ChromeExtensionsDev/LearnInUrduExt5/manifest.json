@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Learn in Urdu Extension 5",
+  "version": "5",
+	"browser_action":{
+        "default_icon":"icon.png",
+		"default_popup": "popup.html"
+    },
+  "permissions": [
+       "tabs",
+	   "storage",
+	   "notifications",
+	   "<all_urls>"
+   ]
+}
+
+
+
+
