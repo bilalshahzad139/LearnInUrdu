@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Learn In Urdu Extension 7",
+  "version": "7",
+  "background":{
+        "scripts": ["scripts/background.js"],
+		"persistent": false
+    },
+	"page_action": {
+        "default_icon": {                    
+        "16": "icon.png",           
+        "24": "icon.png",           
+        "32": "icon.png"            
+        },
+        "default_title": "Learning in Urdu",      
+        "default_popup": "popup.html"        
+    }, 
+  "permissions": [
+          "tabs"
+    ]
+}
+
+
+
+
